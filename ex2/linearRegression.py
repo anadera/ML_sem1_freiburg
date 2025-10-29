@@ -11,7 +11,7 @@ if __name__ == '__main__':
     XtX = np.matmul(X.T, X)
     Xty = np.matmul(X.T, y)
 
-    weights = np.linalg.solve(XtX, Xty)
+    weights = np.matmul(np.linalg.inv(XtX), Xty)
     w_age, w_area = weights[0], weights[1]
 
     print("Weights: w_years={}, w_area={}".format(w_age, w_area))
